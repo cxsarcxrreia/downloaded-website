@@ -35,23 +35,20 @@ export default function WorkPage() {
                     Our Work
                 </h1>
 
-                <div className="relative w-full max-w-4xl mx-auto flex flex-col items-center">
+                <div className="relative w-fit max-w-4xl mx-auto flex flex-col">
 
                     {/* Central Line */}
-                    <div className="absolute top-0 bottom-0 left-1/2 w-px bg-white/20 -translate-x-1/2"></div>
+                    <div className="absolute top-0 bottom-0 left-[22px] w-px bg-white/20"></div>
 
                     {TIMELINE.map((item, index) => (
                         <SectionReveal key={index} delay={index * 100}>
                             <div className="relative w-full flex items-start mb-16 last:mb-0 group">
 
-                                {/* Left Side (Empty) */}
-                                <div className="w-1/2 pr-8 text-right hidden md:block"></div>
+                                {/* Timeline Dot (Left) */}
+                                <div className="absolute left-[16px] mt-1.5 w-3 h-3 bg-black rounded-full border-2 border-white shadow-[0_0_10px_rgba(255,255,255,0.5)] z-20 group-hover:scale-150 transition-transform duration-300"></div>
 
-                                {/* Timeline Dot (Centered) */}
-                                <div className="absolute left-1/2 -translate-x-1/2 mt-1.5 w-3 h-3 bg-black rounded-full border-2 border-white shadow-[0_0_10px_rgba(255,255,255,0.5)] z-20 group-hover:scale-150 transition-transform duration-300"></div>
-
-                                {/* Right Side (Content) */}
-                                <div className="w-1/2 pl-8 md:pl-12 pt-0.5">
+                                {/* Content (Full Width) */}
+                                <div className="w-full pl-12 pt-0.5">
                                     <span className="text-green-400 font-mono text-xs tracking-widest block mb-1 opacity-80">{item.year}</span>
                                     <h3 className="text-xl md:text-2xl font-bold uppercase mb-2 text-white group-hover:text-green-400 transition-colors">{item.title}</h3>
                                     <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-4 max-w-sm">

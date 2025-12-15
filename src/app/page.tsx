@@ -61,8 +61,8 @@ export default function Home() {
             ref={buttonRef}
             href="mailto:contact@downloaded.studios"
             className={`group relative inline-flex items-center justify-center px-6 py-2 overflow-hidden font-bold text-white border transition-all duration-300 text-sm ${highlightButton
-                ? "border-white bg-gray-200/20 shadow-[0_0_20px_white]"
-                : "border-white/20 hover:border-white"
+              ? "border-white bg-gray-200/20 shadow-[0_0_20px_white]"
+              : "border-white/20 hover:border-white"
               }`}
           >
             <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-white rounded-full group-hover:w-56 group-hover:h-56 opacity-10"></span>
@@ -76,10 +76,7 @@ export default function Home() {
         </div>
       </div>
 
-      <footer className="absolute bottom-8 flex flex-col items-center gap-2 text-xs text-gray-700 uppercase tracking-widest">
-        <span>Located in Algarve, Portugal</span>
-        <span>© {new Date().getFullYear()} Downloaded Studios</span>
-      </footer>
+      {/* Footer removed (now global) */}
     </main>
   );
 }
