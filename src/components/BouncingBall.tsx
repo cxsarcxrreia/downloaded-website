@@ -19,16 +19,17 @@ export default function BouncingBall({ wrapperRef, buttonRef, onBounce }: Bounci
         if (!ctx) return;
 
         let animationFrameId: number;
+        let timeoutId: NodeJS.Timeout;
 
         // Physics parameters
-        let x = -50; // Start off-screen left
-        let y = 100; // Start somewhat high
-        const startVelocityX = 7; // Faster horizontal speed to reach button
-        let velocityX = startVelocityX;
+        let x = -50;
+        let y = 100;
+        const baseVelocityX = 7.3; // Calibrated for 1920px width
+        let velocityX = baseVelocityX;
         let velocityY = 0;
-        const gravity = 0.45; // Slightly lower gravity for "floatier" feel
-        const bounceFactor = -0.85; // Bouncier! (Was -0.6)
-        const floorY = canvas.height + 100; // Conceptual floor (below screen)
+        const gravity = 0.45;
+        const bounceFactor = -0.85;
+        const floorY = canvas.height + 100;
 
         // Trail history
         const trail: { x: number; y: number; opacity: number }[] = [];
@@ -45,9 +46,15 @@ export default function BouncingBall({ wrapperRef, buttonRef, onBounce }: Bounci
         // Reset ball loop
         const resetBall = () => {
             x = -50;
-            y = window.innerHeight * 0.15; // Start higher up
-            velocityX = startVelocityX + Math.random(); // Less random variation to keep consistent arc
-            velocityY = 4 + Math.random() * 4; // Ensure clear initial drop
+            y = window.innerHeight * 0.15;
+
+            // Calculate responsive velocity:
+            // Scale the base velocity (7.3) by the ratio of current width to base width (1920)
+            const widthRatio = window.innerWidth / 1920;
+            const responsiveVelocity = baseVelocityX * widthRatio;
+
+            velocityX = responsiveVelocity + Math.random() * 0.5; // Reduced random variation
+            velocityY = 4 + Math.random() * 4;
             // Clear trail on reset
             trail.length = 0;
         };
@@ -104,10 +111,13 @@ export default function BouncingBall({ wrapperRef, buttonRef, onBounce }: Bounci
                 }
             }
 
-            // Screen boundary (just right side reset)
             if (x > canvas.width + 100) {
-                // Loop back
-                resetBall();
+                // Loop back with delay
+                timeoutId = setTimeout(() => {
+                    resetBall();
+                    animationFrameId = requestAnimationFrame(draw);
+                }, 4000);
+                return;
             }
 
             // Trail Update & Draw
@@ -154,6 +164,7 @@ export default function BouncingBall({ wrapperRef, buttonRef, onBounce }: Bounci
         return () => {
             window.removeEventListener("resize", resizeCanvas);
             cancelAnimationFrame(animationFrameId);
+            clearTimeout(timeoutId);
         };
     }, [buttonRef, onBounce]); // Re-run if props change (unlikely for refs)
 
