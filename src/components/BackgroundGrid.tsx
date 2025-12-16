@@ -33,11 +33,15 @@ export default function BackgroundGrid() {
             const width = canvas.width;
             const height = canvas.height;
 
+            // Calculate offsets to center the grid
+            const startX = (width % DOT_SPACING) / 2;
+            const startY = (height % DOT_SPACING) / 2;
+
             // dark gray for base dots
             ctx.fillStyle = "#333";
 
-            for (let x = 0; x < width; x += DOT_SPACING) {
-                for (let y = 0; y < height; y += DOT_SPACING) {
+            for (let x = startX; x < width; x += DOT_SPACING) {
+                for (let y = startY; y < height; y += DOT_SPACING) {
 
                     // Calculate distance to mouse
                     const dx = x - mouseX;
