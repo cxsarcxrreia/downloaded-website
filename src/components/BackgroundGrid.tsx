@@ -65,7 +65,8 @@ export default function BackgroundGrid() {
             animationFrameId = requestAnimationFrame(draw);
         };
 
-        const handleMouseMove = (e: MouseEvent) => {
+        const handlePointerMove = (e: PointerEvent) => {
+            if (e.pointerType !== 'mouse') return;
             const rect = canvas.getBoundingClientRect();
             mouseX = e.clientX - rect.left;
             mouseY = e.clientY - rect.top;
@@ -79,15 +80,15 @@ export default function BackgroundGrid() {
         // Init
         resize();
         window.addEventListener("resize", resize);
-        window.addEventListener("mousemove", handleMouseMove);
-        window.addEventListener("mouseout", handleMouseLeave);
+        window.addEventListener("pointermove", handlePointerMove);
+        window.addEventListener("pointerleave", handleMouseLeave);
 
         draw();
 
         return () => {
             window.removeEventListener("resize", resize);
-            window.removeEventListener("mousemove", handleMouseMove);
-            window.removeEventListener("mouseout", handleMouseLeave);
+            window.removeEventListener("pointermove", handlePointerMove);
+            window.removeEventListener("pointerleave", handleMouseLeave);
             cancelAnimationFrame(animationFrameId);
         };
     }, []);
