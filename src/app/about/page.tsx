@@ -18,7 +18,7 @@ const TEAM = [
 
 export default function AboutPage() {
     return (
-        <main className="relative min-h-screen flex flex-col items-center pt-24 pb-12 px-4">
+        <main className="relative flex flex-col items-center pt-24 pb-12 px-4">
             <BackgroundGrid />
 
             <div className="relative z-10 w-full max-w-4xl animate-in fade-in zoom-in duration-700">
@@ -55,18 +55,18 @@ export default function AboutPage() {
                     ))}
                 </div>
 
-                <div className="mt-20 max-w-3xl mx-auto space-y-16">
+                <div className="mt-20 max-w-3xl mx-auto space-y-16 pb-18">
                     {/* Bio Section - Glassmorphism Layer */}
                     <SectionReveal delay={300}>
                         <div className="bg-black/30 backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-2xl relative overflow-hidden shadow-2xl">
                             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-green-400/50 to-transparent"></div>
                             <p className="text-sm md:text-base text-gray-300 leading-loose font-light text-center">
-                                Having spent our entire lives on the Internet since we were born, we KNOW what is a good user experience. Coming from a background of freelancing and customer service, we also understand client satisfaction. Don't believe us? Check out this referral from our latest job.
+                                Having spent our entire lives on the Internet since we were born, we KNOW what is a good user experience. Coming from a background of freelancing and customer service, we also understand client satisfaction.
                             </p>
                         </div>
                     </SectionReveal>
 
-                    {/* Referrals Section */}
+                    {/* Referrals Section
                     <SectionReveal delay={450}>
                         <div className="text-center space-y-8">
                             <div className="flex items-center justify-center gap-4 opacity-50">
@@ -88,9 +88,9 @@ export default function AboutPage() {
                                 </cite>
                             </div>
                         </div>
-                    </SectionReveal>
+                    </SectionReveal> */}
                 </div>
             </div>
-        </main>
+        </main >
     );
 }
