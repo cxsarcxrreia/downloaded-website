@@ -59,7 +59,7 @@ export default function Home() {
         <div className="pt-1 animate-in fade-in slide-in-from-bottom-5 duration-600 ease-out delay-500 fill-mode-backwards">
           <a
             ref={buttonRef}
-            href="mailto:contact@downloaded.studios"
+            href="mailto:contact@downloadedstudios.com"
             className={`group relative inline-flex items-center justify-center px-6 py-2 overflow-hidden font-bold text-white border transition-all duration-300 text-sm ${highlightButton
               ? "border-white bg-gray-200/20 shadow-[0_0_20px_white]"
               : "border-white/20 hover:border-white"
