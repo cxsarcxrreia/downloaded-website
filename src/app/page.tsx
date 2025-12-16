@@ -16,7 +16,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main ref={wrapperRef} className="relative min-h-screen flex flex-col items-center justify-center p-8 overflow-hidden">
+    <main ref={wrapperRef} className="relative h-[100dvh] w-full flex flex-col items-center justify-center p-8 overflow-hidden touch-none overscroll-none">
       {/* Interactive Background */}
       <BackgroundGrid />
 
@@ -24,7 +24,7 @@ export default function Home() {
       <BouncingBall wrapperRef={wrapperRef} buttonRef={buttonRef} onBounce={handleBounce} />
 
       {/* Content Overlay */}
-      <div className="relative z-10 flex flex-col items-center text-center space-y-3 max-w-2xl px-4 animate-in fade-in zoom-in duration-1000">
+      <div className="relative z-10 flex flex-col items-center text-center space-y-3 max-w-3xl px-4 animate-in fade-in zoom-in duration-1000">
 
         {/* Hire Us Chip */}
         <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm shadow-sm transition-all hover:bg-white/10 cursor-default">
