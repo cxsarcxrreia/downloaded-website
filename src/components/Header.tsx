@@ -1,11 +1,19 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Header() {
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 mix-blend-difference text-white">
-            {/* Logo - Mirroring the main H1 style but smaller */}
-            <Link href="/" className="text-xl md:text-2xl font-bold tracking-tighter cursor-pointer hover:opacity-80 transition-opacity">
-                downloaded<sup className="text-xs opacity-60 ml-0.5">&reg;</sup>
+        <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-black/80 backdrop-blur-md text-white border-b border-white/10">
+            {/* Logo */}
+            <Link href="/" className="hover:opacity-80 transition-opacity">
+                <Image
+                    src="/logo.png"
+                    alt="Downloaded Studios"
+                    width={150}
+                    height={40}
+                    className="h-8 w-auto"
+                    priority
+                />
             </Link>
 
             {/* Navigation */}

@@ -24,7 +24,7 @@ export default function Home() {
       <BouncingBall wrapperRef={wrapperRef} buttonRef={buttonRef} onBounce={handleBounce} />
 
       {/* Content Overlay */}
-      <div className="relative z-10 flex flex-col items-center text-center space-y-6 max-w-2xl px-4 animate-in fade-in zoom-in duration-1000">
+      <div className="relative z-10 flex flex-col items-center text-center space-y-3 max-w-2xl px-4 animate-in fade-in zoom-in duration-1000">
 
         {/* Hire Us Chip */}
         <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm shadow-sm transition-all hover:bg-white/10 cursor-default">
@@ -35,8 +35,8 @@ export default function Home() {
           <span className="text-xs text-gray-300 font-bold tracking-wider uppercase">Hire Us</span>
         </div>
 
-        <div className="space-y-6">
-          <h1 className="text-3xl md:text-5xl font-bold tracking-tighter text-white mix-blend-difference overflow-hidden">
+        <div className="space-y-3">
+          <h1 className="text-3xl md:text-4xl font tracking-tighter text-white mix-blend-difference overflow-hidden">
             {/* Split "downloaded" into letters for animation */}
             <span className="inline-block">
               {"downloaded".split("").map((char, index) => (
@@ -49,9 +49,9 @@ export default function Home() {
                 </span>
               ))}
             </span>
-            <sup className="text-lg md:text-2xl opacity-80 animate-in fade-in zoom-in duration-600 delay-1000"> &reg;</sup>
+            <sup className="text-lg md:text-xl opacity-80 animate-in fade-in zoom-in duration-600 delay-1000"> &reg;</sup>
           </h1>
-          <p className="text-sm md:text-base text-gray-400 tracking-normal font-light animate-in fade-in slide-in-from-bottom-5 duration-600 ease-out delay-200 fill-mode-backwards">
+          <p className="text-xs md:text-sm text-gray-400 tracking-normal font-light animate-in fade-in slide-in-from-bottom-5 duration-600 ease-out delay-200 fill-mode-backwards">
             [ Your Digital Solution is waiting<LoadingDots /> ]
           </p>
         </div>
