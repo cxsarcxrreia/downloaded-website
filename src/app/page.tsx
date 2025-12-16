@@ -16,7 +16,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main ref={wrapperRef} className="relative h-[100dvh] w-full flex flex-col items-center justify-center p-8 overflow-hidden touch-none overscroll-none">
+    <main ref={wrapperRef} className="relative h-[100dvh] w-full flex flex-col items-center justify-center p-2 md:p-8 overflow-hidden touch-none overscroll-none">
       {/* Interactive Background */}
       <BackgroundGrid />
 
@@ -24,7 +24,7 @@ export default function Home() {
       <BouncingBall wrapperRef={wrapperRef} buttonRef={buttonRef} onBounce={handleBounce} />
 
       {/* Content Overlay */}
-      <div className="relative z-10 flex flex-col items-center text-center space-y-3 max-w-3xl px-4 animate-in fade-in zoom-in duration-1000">
+      <div className="relative z-10 w-full flex flex-col items-center text-center space-y-3 max-w-3xl px-2 md:px-4 animate-in fade-in zoom-in duration-1000">
 
         {/* Hire Us Chip */}
         <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm shadow-sm transition-all hover:bg-white/10 cursor-default">
@@ -52,7 +52,7 @@ export default function Home() {
             <sup className="text-lg md:text-xl opacity-80 animate-in fade-in zoom-in duration-600 delay-1000"> &reg;</sup>
           </h1>
           <p className="text-xs md:text-sm text-gray-400 tracking-normal font-light animate-in fade-in slide-in-from-bottom-5 duration-600 ease-out delay-200 fill-mode-backwards">
-            [Your Digital Solution is waiting<LoadingDots />]
+            [ Your Digital Solution is waiting<LoadingDots /> ]
           </p>
         </div>
 
