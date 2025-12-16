@@ -52,7 +52,7 @@ export default function Home() {
             <sup className="text-lg md:text-xl opacity-80 animate-in fade-in zoom-in duration-600 delay-1000"> &reg;</sup>
           </h1>
           <p className="text-xs md:text-sm text-gray-400 tracking-normal font-light animate-in fade-in slide-in-from-bottom-5 duration-600 ease-out delay-200 fill-mode-backwards">
-            [ Your Digital Solution is waiting<LoadingDots /> ]
+            [Your Digital Solution is waiting<LoadingDots />]
           </p>
         </div>
 
