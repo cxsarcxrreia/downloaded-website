@@ -157,12 +157,29 @@ export default function BouncingBall({ wrapperRef, buttonRef, onBounce }: Bounci
             animationFrameId = requestAnimationFrame(draw);
         };
 
+        const handleCanvasClick = (e: PointerEvent) => {
+            const rect = canvas.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const clickY = e.clientY - rect.top;
+
+            const dist = Math.sqrt((x - clickX) ** 2 + (y - clickY) ** 2);
+            // Ball radius is around 6-8, give it a generous hit area (e.g. 30px)
+            if (dist < 30) {
+                velocityY = -15; // Jump up!
+            }
+        };
+
+        window.addEventListener("resize", resizeCanvas);
+        canvas.addEventListener('pointerdown', handleCanvasClick);
+        resizeCanvas();
+
         // Start
         resetBall();
         animationFrameId = requestAnimationFrame(draw);
 
         return () => {
             window.removeEventListener("resize", resizeCanvas);
+            canvas.removeEventListener('pointerdown', handleCanvasClick);
             cancelAnimationFrame(animationFrameId);
             clearTimeout(timeoutId);
         };
@@ -171,7 +188,7 @@ export default function BouncingBall({ wrapperRef, buttonRef, onBounce }: Bounci
     return (
         <canvas
             ref={canvasRef}
-            className="absolute inset-0 pointer-events-none z-20"
+            className="absolute inset-0 pointer-events-auto z-20"
             style={{ width: "100%", height: "100%" }}
         />
     );

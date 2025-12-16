@@ -35,7 +35,7 @@ export default function WorkPage() {
                     Our Work
                 </h1>
 
-                <div className="relative w-fit max-w-4xl mx-auto flex flex-col">
+                <div className="relative w-fit max-w-4xl mx-auto flex pb-16 flex-col">
 
                     {/* Central Line */}
                     <div className="absolute top-0 bottom-0 left-[22px] w-px bg-white/20"></div>
