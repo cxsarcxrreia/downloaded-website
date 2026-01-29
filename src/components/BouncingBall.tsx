@@ -170,7 +170,8 @@ export default function BouncingBall({ wrapperRef, buttonRef, onBounce }: Bounci
         };
 
         window.addEventListener("resize", resizeCanvas);
-        canvas.addEventListener('pointerdown', handleCanvasClick);
+        window.addEventListener('pointerdown', handleCanvasClick);
+
         resizeCanvas();
 
         // Start
@@ -179,7 +180,7 @@ export default function BouncingBall({ wrapperRef, buttonRef, onBounce }: Bounci
 
         return () => {
             window.removeEventListener("resize", resizeCanvas);
-            canvas.removeEventListener('pointerdown', handleCanvasClick);
+            window.removeEventListener('pointerdown', handleCanvasClick);
             cancelAnimationFrame(animationFrameId);
             clearTimeout(timeoutId);
         };
@@ -188,8 +189,8 @@ export default function BouncingBall({ wrapperRef, buttonRef, onBounce }: Bounci
     return (
         <canvas
             ref={canvasRef}
-            className="absolute inset-0 pointer-events-auto z-20"
+            className="absolute inset-0 pointer-events-none z-0"
             style={{ width: "100%", height: "100%" }}
         />
-    );
+        );
 }
